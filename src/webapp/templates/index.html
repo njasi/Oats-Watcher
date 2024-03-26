@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Live Oats</title>
+
+    <link href="https://fonts.cdnfonts.com/css/terminal" rel="stylesheet" />
+    <style>
+      html,
+      body {
+        background-color: black;
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      img {
+        display: block;
+        width: 100%;
+        max-height: 100vh;
+      }
+      #feed {
+        width: 100%;
+        margin: 1rem;
+        position: relative;
+        text-align: center;
+      }
+      #timestamp {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        color: red;
+        font-family: "Terminal", sans-serif;
+        -webkit-text-stroke-width: 0.5px;
+        -webkit-text-stroke-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="feed">
+      <img src="{{ url_for('video_feed') }}" />
+      <div id="timestamp"></div>
+    </div>
+    <script>
+      timestamp = document.getElementById("timestamp");
+      update = () => {
+        timestamp.innerText = "Live Oats View " + new Date().toLocaleString();
+      };
+      update();
+      setInterval(update, 1000);
+    </script>
+  </body>
+</html>
