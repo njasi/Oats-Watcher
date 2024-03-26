@@ -169,7 +169,6 @@ class MotionDetector:
 
             # save frame for next round
             self._prev_gray = gray
-            cv2.imwrite("temp/_prev_gray.jpeg", self._prev_gray)
 
             # patch over the ignore areas
             for dead_space in self.ignore:
@@ -178,7 +177,6 @@ class MotionDetector:
                 )
 
             # find the cotours & iterate over them
-            cv2.imwrite("temp/threshold.jpeg", threshold)
             cnts = cv2.findContours(
                 threshold.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE
             )
@@ -203,7 +201,6 @@ class MotionDetector:
             if motion:
                 logger.info(f"Oats Motion Detected")
                 labeled = self._label_image(frame_copy)
-                cv2.imwrite("temp/test.jpeg", labeled)
 
                 # keeping this like this for if i wanna switch back to the gif thing
                 self.on_motion(labeled)
@@ -243,7 +240,7 @@ class MotionDetector:
         was like this so we could have the image not overwritten but...
         """
 
-        file_path = f"temp/movement_{time.time()}.gif"
+        file_path = f"data/temp/movement_{time.time()}.gif"
         try:
             # with imageio.get_writer(file_path, mode="I", disposal) as writer:
             for i in range(len(frames)):
@@ -261,7 +258,6 @@ class MotionDetector:
 
             with open(file_path, "rb") as gif:
                 thumb = cv2.imencode(".png", frames[0])[1].tobytes()
-                cv2.imwrite("temp/testthing.png", frames[0])
                 await self._bot.send_animation(
                     chat_id=OATS_CHAT_ID,
                     thumbnail=thumb,

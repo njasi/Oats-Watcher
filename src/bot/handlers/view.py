@@ -11,8 +11,6 @@ from video import CAMERA
 
 from helpers import load_config
 
-PHOTO_PATH = "./temp/oats.png"
-
 CAPTION = load_config("caption", "./data/messages.json")
 CAPTION_HAPPY = load_config("caption-happy", "./data/messages.json")
 
