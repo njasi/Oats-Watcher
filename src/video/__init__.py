@@ -6,7 +6,7 @@ CAMERA_MRL = os.environ["CAMERA_MRL"]
 
 # single shared camera for all of the code to use
 
-CAMERA = SharedCamera(CAMERA_MRL)
+CAMERA = SharedCamera(int(CAMERA_MRL))
 
 
 def main():
