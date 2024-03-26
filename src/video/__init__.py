@@ -1,9 +1,12 @@
+import os
 from .SharedCamera import SharedCamera
 from .MotionDetector import MotionDetector
 
+CAMERA_MRL = os.environ["CAMERA_MRL"]
+
 # single shared camera for all of the code to use
 
-CAMERA = SharedCamera("udp://@:1234")
+CAMERA = SharedCamera(CAMERA_MRL)
 
 
 def main():
