@@ -237,7 +237,8 @@ class MotionDetector:
         """
         Let all the actual work be done in the telegram loop lol
 
-        was like this so we could have the image not overwritten but...
+        was like this so we could process & send the gif without conflicts
+        but now it jsut pushing the work elsewhere lol
         """
 
         file_path = f"data/temp/movement_{time.time()}.gif"
@@ -267,10 +268,8 @@ class MotionDetector:
                 )
 
         finally:
-            try:
-                os.remove(file_path)
-            except:
-                pass
+            # TODO add to history
+            pass
 
     def on_motion_end(self):
         logger.info(f"Sending Oats Motion To {OATS_CHAT_ID}")

@@ -1,5 +1,5 @@
 """
-Set of functions to interact with the history database
+Set of functions to interact with the user database
 """
 
 from . import User as UserDB
