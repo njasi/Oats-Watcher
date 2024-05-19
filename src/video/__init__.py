@@ -4,9 +4,14 @@ from .MotionDetector import MotionDetector
 
 CAMERA_MRL = os.environ["CAMERA_MRL"]
 
-# single shared camera for all of the code to use
+# try to make it an int for local 
+try:
+    CAMERA_MRL = int(CAMERA_MRL)
+except:
+    pass
 
-CAMERA = SharedCamera(int(CAMERA_MRL))
+# single shared camera for all of the code to use
+CAMERA = SharedCamera(CAMERA_MRL)
 
 
 def main():

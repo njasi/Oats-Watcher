@@ -188,13 +188,13 @@ class MotionDetector:
             for i, cnt in enumerate(grab_contours(cnts)):
                 if cv2.contourArea(cnt) >= self._min_area:
                     # (x, y, w, h) = cv2.boundingRect(cnt)
-                    cv2.drawContours(
-                        frame_copy,
-                        [cnt],
-                        i * -1,
-                        color=(0, 0xFF, 0, 50),
-                        thickness=cv2.FILLED,
-                    )
+                    # cv2.drawContours(
+                    #     frame_copy,
+                    #     [cnt],
+                    #     i * -1,
+                    #     color=(0, 0xFF, 0, 50),
+                    #     thickness=cv2.FILLED,
+                    # )
                     # cv2.rectangle(frame_copy, (x, y), (x + w, y + h), (0, 0xFF, 0), 2)
                     motion = True
 
