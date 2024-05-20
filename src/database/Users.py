@@ -80,7 +80,7 @@ class Users:
             if i >= 10:
                 break
             res += "<b>{}</b>:\t{} has viewed {} O A T S!\n".format(
-                i + 1, user["name"], user["views"]
+                start + i + 1, user["name"], user["views"]
             )
 
         if res == "<b>O A T S   Leaderboard:</b>\n":
